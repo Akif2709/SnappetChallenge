@@ -1,0 +1,32 @@
+<ng-container *ngIf="data$ | async as data; else loadingState">
+  <ng-container *ngFor="let subjectData of data">
+    <ng-container *ngFor="let domain of subjectData">
+      <div class="sp-card">
+        <div echarts [options]="domain" class="demo-chart"></div>
+        <div class="sp-chart-info">
+          <div>
+            Answer dates are between:
+            <strong>
+              {{ domain.extra.firstAnswerDate | date: mediumDate }} -
+              {{ domain.extra.lastAnswerDate | date: mediumDate }}
+            </strong>
+          </div>
+          <div>
+            Number of answers: <strong>{{ domain.extra.numberOfAnswers }}</strong>
+          </div>
+          <div>
+            Total Progress: <strong>{{ domain.extra.totalProgress }}</strong>
+          </div>
+          <div>
+            Average Progress Per Answer:
+            <strong>{{ domain.extra.averageProgressAtTheEnd }}</strong>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #loadingState>
+  <app-spinner></app-spinner>
+</ng-template>

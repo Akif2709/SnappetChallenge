@@ -1,0 +1,12 @@
+<nav class="sp-navbar">
+  <li class="sp-nav-item">
+    <a class="sp-nav-link" aria-current="page" routerLink="actual-level" routerLinkActive="active"> Actual Level Estimation </a>
+  </li>
+  <li class="sp-nav-item">
+    <a class="sp-nav-link" routerLink="relative-progress" routerLinkActive="active"> Relative Progress Per Subject </a>
+  </li>
+</nav>
+
+<div class="sp-container" [@routeAnimations]="getRouteAnimationData()">
+  <router-outlet></router-outlet>
+</div>
